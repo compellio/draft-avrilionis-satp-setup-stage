@@ -149,7 +149,6 @@ Table of Contents
    completion status of the transfer (messages 10 to 13).  The
    completion status can be either "commit" or "rollback".
 
-
     App1   NW1          G1                      G2          NW2   App2
     ..|.....|............|......................|............|.....|..
       |     |            |      Stage 0         |            |     |
@@ -242,7 +241,6 @@ Table of Contents
       clear what execution unit in the networks managed the lock/
       extinguishing (NW1) and creation (NW2) operations for the specific
       transfer context.
-
 
 {
    "transferContextID": "urn:satp:transferContext:0x517BBF0c9B71f64b5807f644E1F1bacD3Afb3ec2.0xf3beac30c498d9e26865f34fcaa57dbb935b0d74",
