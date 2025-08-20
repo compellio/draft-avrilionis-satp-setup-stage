@@ -5,8 +5,8 @@
 Network Working Group                                      D. Avrilionis
 Internet-Draft                                            Compellio S.A.
 Intended status: Informational                               T. Hardjono
-Expires: 21 August 2025                                              MIT
-                                                        17 February 2025
+Expires: 21 February 2026                                            MIT
+                                                          20 August 2025
 
 
                             SATP Setup Stage
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 August 2025.
+   This Internet-Draft will expire on 21 February 2026.
 
 Copyright Notice
 
@@ -73,7 +73,7 @@ Table of Contents
 
 1.  Introduction
 
-   SATP, in its specification in SATP Core [1], defines a three-stage
+   SATP, in its specification in SATP Core[1], defines a three-stage
    protocol for unidirectional transfer of assets between two Networks.
    The protocol is executed by two Gateways, according to the flow
    defined in section 5 of SATP Core.  As stated in SATP Core, "the
