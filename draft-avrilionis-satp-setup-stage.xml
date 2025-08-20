@@ -55,7 +55,7 @@
 
   <middle>
     <section anchor="introduction" title="Introduction">
-      <t>SATP, in its specification in SATP Core <xref
+      <t>SATP, in its specification in SATP Core<xref
       target="SATP-CORE"/>, defines a three-stage protocol for unidirectional
       transfer of assets between two Networks. The protocol is executed by two
       Gateways, according to the flow defined in section 5 of SATP Core. As
