@@ -5,8 +5,8 @@
 Network Working Group                                      D. Avrilionis
 Internet-Draft                                            Compellio S.A.
 Intended status: Informational                               T. Hardjono
-Expires: 21 February 2026                                            MIT
-                                                          20 August 2025
+Expires: 27 August 2026                                              MIT
+                                                        23 February 2026
 
 
                             SATP Setup Stage
@@ -46,11 +46,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 February 2026.
+   This Internet-Draft will expire on 27 August 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -149,44 +149,47 @@ Table of Contents
    completion status of the transfer (messages 10 to 13).  The
    completion status can be either "commit" or "rollback".
 
-    App1   NW1          G1                      G2          NW2   App2
+    App1   NW1          G1      REGISTRY        G2          NW2   App2
     ..|.....|............|......................|............|.....|..
-      |     |            |      Stage 0         |            |     |
-      |     |            |                      |            |     |
-      |1:requestTC(TAR[])|                      |            |     |
-      |-----|----------->|                      |            |     |
-      |< - -|- - - - - - |                      |            |     |
-      | 2:TCID           |                      |            |     |
-      |     |            |                      |            |     |
-      |3:bindAssets(DARID, TCID)                |            |     |
-      |---->|            |                      |            |     |
-      |     |            |                      |            |     |
+      |     |            |          |           |            |     |
+      |     |            |          |           |            |     |
+      |1:requestTC(TAR[])|          |           |            |     |
+      |-----|----------->|          |           |            |     |
+      |< - -|- - - - - - |          |           |            |     |
+      | 2:TCID           |          |           |            |     |
+      |     |            |          |           |            |     |
+      |3:bindAssets(DARID, TCID)    |           |            |     |
+      |---->|            |          |           |            |     |
+      |     |            |          |           |            |     |
       |     |            | 4:propagateTC(TCID)  |            |     |
       |-----|------------|----------------------|------------|---->|
       |< - -|- - - - - - |- - - - - - - - - - - |- - - - - - |- - -|
-      | 5:propagateTC_Ack(TCID)                 |            |     |
-      |     |            |                      |   6:bindTC(TCID) |
-      |     |            |                      |            |<----|
-      |     |            |                      |7:propagateTC(TCID)
-      |     |            |                      |<-----------|-----|
+      | 5:propagateTC_Ack(TCID)     |           |            |     |
+      |     |            |          |           |   6:bindTC(TCID) |
+      |     |            |          |           |            |<----|
+      |     |            |          |           |7:propagateTC(TCID)
+      |     |            |          |           |<-----------|-----|
       |     |            |  8:bindGateway(G2ID, TCID)        |     |
       |     |            |<---------------------|            |     |
-      |     |            |                      |            |     |
-      |9:beginSATP(TCID) |                      |            |     |
-      |-----|----------->|                      |            |     |
-      |     |            |                      |            |     |
+      |     |            | register (TC)        |            |     |
+      |9:beginSATP(TCID) |--------->|           |            |     |
+      |-----|----------->|          |           |            |     |
+      |     |            |          |           |            |     |
      ////////////////////// SATP CORE EXECUTION /////////////////////
-      |     |            |                      |            |     |
-      |10:requestStatus(TCID)                   |            |     |
-      |-----|----------->|                      |            |     |
-      |< - -|- - - - - - |                      |            |     |
-      | 11:completionStatus                     |            |     |
-      |     |            |                      |            |     |
-      |     |            |                      |12:requestStatus(TCID)
-      |     |            |                      |<-----------|-----|
-      |     |            |                      |- - -|- - - - - ->|
-      |     |            |                      | 13:completionStatus
-      |     |            |                      |            |     |
+      |     |            |          |           |            |     |
+      |     |            |update (TCID, complete)            |     |
+      |     |            |--------->|           |            |     |
+      |     |            |          |           |            |     |
+      |10:requestStatus(TCID)       |           |            |     |
+      |-----|----------->|          |           |            |     |
+      |< - -|- - - - - - |          |           |            |     |
+      | 11:completionStatus         |           |            |     |
+      |     |            |          |           |            |     |
+      |     |            |          |           |12:requestStatus(TCID)
+      |     |            |          |           |<-----------|-----|
+      |     |            |          |           |- - -|- - - - - ->|
+      |     |            |          |           | 13:completionStatus
+      |     |            |          |           |            |     |
 
                            Figure 1: Stage 0 flow
 
