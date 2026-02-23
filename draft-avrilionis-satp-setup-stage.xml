@@ -149,44 +149,47 @@
       <figure align="center" anchor="asset_schema_jsonld"
               title="Stage 0 flow">
         <artwork><![CDATA[
-App1   NW1          G1                      G2          NW2   App2
+App1   NW1          G1      REGISTRY        G2          NW2   App2
 ..|.....|............|......................|............|.....|..
-  |     |            |      Stage 0         |            |     |
-  |     |            |                      |            |     |
-  |1:requestTC(TAR[])|                      |            |     |
-  |-----|----------->|                      |            |     |
-  |< - -|- - - - - - |                      |            |     |
-  | 2:TCID           |                      |            |     |
-  |     |            |                      |            |     |
-  |3:bindAssets(DARID, TCID)                |            |     |
-  |---->|            |                      |            |     |
-  |     |            |                      |            |     |
+  |     |            |          |           |            |     |
+  |     |            |          |           |            |     |
+  |1:requestTC(TAR[])|          |           |            |     |
+  |-----|----------->|          |           |            |     |
+  |< - -|- - - - - - |          |           |            |     |
+  | 2:TCID           |          |           |            |     |
+  |     |            |          |           |            |     |
+  |3:bindAssets(DARID, TCID)    |           |            |     |
+  |---->|            |          |           |            |     |
+  |     |            |          |           |            |     |
   |     |            | 4:propagateTC(TCID)  |            |     |
   |-----|------------|----------------------|------------|---->|
   |< - -|- - - - - - |- - - - - - - - - - - |- - - - - - |- - -|
-  | 5:propagateTC_Ack(TCID)                 |            |     |
-  |     |            |                      |   6:bindTC(TCID) |
-  |     |            |                      |            |<----|
-  |     |            |                      |7:propagateTC(TCID)
-  |     |            |                      |<-----------|-----|
+  | 5:propagateTC_Ack(TCID)     |           |            |     |
+  |     |            |          |           |   6:bindTC(TCID) |
+  |     |            |          |           |            |<----|
+  |     |            |          |           |7:propagateTC(TCID)
+  |     |            |          |           |<-----------|-----|
   |     |            |  8:bindGateway(G2ID, TCID)        |     |
   |     |            |<---------------------|            |     |
-  |     |            |                      |            |     |
-  |9:beginSATP(TCID) |                      |            |     |
-  |-----|----------->|                      |            |     |
-  |     |            |                      |            |     |
+  |     |            | register (TC)        |            |     |
+  |9:beginSATP(TCID) |--------->|           |            |     |
+  |-----|----------->|          |           |            |     |
+  |     |            |          |           |            |     |
  ////////////////////// SATP CORE EXECUTION /////////////////////
-  |     |            |                      |            |     |
-  |10:requestStatus(TCID)                   |            |     |
-  |-----|----------->|                      |            |     |
-  |< - -|- - - - - - |                      |            |     |
-  | 11:completionStatus                     |            |     |
-  |     |            |                      |            |     |
-  |     |            |                      |12:requestStatus(TCID)
-  |     |            |                      |<-----------|-----|
-  |     |            |                      |- - -|- - - - - ->|
-  |     |            |                      | 13:completionStatus
-  |     |            |                      |            |     |
+  |     |            |          |           |            |     |
+  |     |            |update (TCID, complete)            |     |
+  |     |            |--------->|           |            |     |
+  |     |            |          |           |            |     |
+  |10:requestStatus(TCID)       |           |            |     |
+  |-----|----------->|          |           |            |     |
+  |< - -|- - - - - - |          |           |            |     |
+  | 11:completionStatus         |           |            |     |
+  |     |            |          |           |            |     |
+  |     |            |          |           |12:requestStatus(TCID)
+  |     |            |          |           |<-----------|-----|
+  |     |            |          |           |- - -|- - - - - ->|
+  |     |            |          |           | 13:completionStatus
+  |     |            |          |           |            |     |
        ]]></artwork>
       </figure>
     </section>
