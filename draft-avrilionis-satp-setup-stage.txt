@@ -5,8 +5,8 @@
 Network Working Group                                      D. Avrilionis
 Internet-Draft                                            Compellio S.A.
 Intended status: Informational                               T. Hardjono
-Expires: 27 August 2026                                              MIT
-                                                        23 February 2026
+Expires: 27 March 2027                                               MIT
+                                                       23 September 2026
 
 
                             SATP Setup Stage
@@ -23,7 +23,7 @@ Abstract
    together via a "transfer context".  The transfer context conveys
    information regarding the assets to be exchanged.  Gateway can
    perform any kind of negotiation based on that transfer context,
-   before entering into SATP Core.
+   before entering into SATP Core
 
 Editorial Note
 
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 August 2026.
+   This Internet-Draft will expire on 27 March 2027.
 
 Copyright Notice
 
