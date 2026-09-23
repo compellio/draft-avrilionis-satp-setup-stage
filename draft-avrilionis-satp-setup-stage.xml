@@ -43,7 +43,7 @@
       would participate in the asset transfer are bound together via a
       "transfer context". The transfer context conveys information regarding
       the assets to be exchanged. Gateway can perform any kind of negotiation
-      based on that transfer context, before entering into SATP Core.</t>
+      based on that transfer context, before entering into SATP Core</t>
     </abstract>
 
     <note title="Editorial Note">
